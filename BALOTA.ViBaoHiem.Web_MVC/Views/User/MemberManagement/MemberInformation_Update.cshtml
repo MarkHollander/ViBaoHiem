@@ -1,0 +1,225 @@
+﻿@{
+    ViewBag.Title = "MemberInformation";
+    Layout = "~/Views/User/MemberManagement/MemberManagement_LayoutPage.cshtml";
+    MemberListEntity member = (MemberListEntity)ViewData["member"];    
+}
+@using BALOTA.ViBaoHiem.Entity
+
+<link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>DataTables</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">DataTables</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title row col-12">
+                        <h3 class="col-9 text-left">Thông tin cá nhân</h3>
+                        <a data-toggle="modal" data-target="#myModal" data-renderpartialview="4" data-inputid="0" class="generatePopup btn btn-block btn-primary col-3 text-white">
+                            Sửa thông tin
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- text input -->
+                            <div class="row">
+                                <label class="font-weight-bold col-4">Username:</label>
+                                <label class="font-weight-light col-8">@member.Username</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <label class="font-weight-bold col-4">Email:</label>
+                                <label class="font-weight-light col-8">@member.Email</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- text input -->
+                            <div class="row">
+                                <label class="font-weight-bold col-4">Tên đầy đủ:</label>
+                                <label class="font-weight-light col-8">@member.FullName</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <label class="font-weight-bold col-4">Mobile:</label>
+                                <label class="font-weight-light col-8">@member.Mobile</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row">
+                                <label class="font-weight-bold col-4">Số dư tài khoản:</label>
+                                <label class="font-weight-light col-8">@member.MemberBalance</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <label class="font-weight-bold col-4">Tổng số dư cộng tác viên:</label>
+                                <label class="font-weight-light col-8">@member.SumMemberBalance</label>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title row col-12">
+                                        <h3 class="col-9 text-left">Danh sách cộng tác viên trực thuộc</h3>
+                                        <a data-toggle="modal" data-target="#myModal" data-renderpartialview="4" data-inputid="0" class="generatePopup btn btn-block btn-primary col-3 text-white">
+                                            Thêm cộng tác viên
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table id="CollaboratorTable" class="table table-bordered table-hover ml-0 mr-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Tên cộng tác viên</th>
+                                                <th>Tên đầy đủ</th>
+                                                <th>Số dư tài khoản</th>
+                                                <th>Tình trạng khóa</th>
+                                                <th>Sửa</th>
+                                                <th>Khóa</th>
+                                                <th>Nạp tài khoản</th>
+                                                <th>Rút tài khoản</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Tên cộng tác viên</th>
+                                                <th>Tên đầy đủ</th>
+                                                <th>Số dư tài khoản</th>
+                                                <th>Tình trạng khóa</th>
+                                                <th>Sửa</th>
+                                                <th>Khóa</th>
+                                                <th>Nạp tài khoản</th>
+                                                <th>Rút tài khoản</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    
+    <!-- /.row -->
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content">
+
+        </div>
+    </div>
+</div>
+
+<!-- DataTables -->
+<script src="/plugins/datatables/jquery.dataTables.js"></script>
+<script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- page script -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#myModal").on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            let renderPartialView = button.data('renderpartialview');
+            let inputId = button.data('inputid');
+                switch (renderPartialView) {
+                    case 1: $.ajax({
+                                type: "POST",
+                                url: '@Url.Action("MemberList_ConfirmDeletePopup","MemberList")',
+                                data: { "inputId": inputId },
+                                dataType: "html",
+                                success: function (response) {
+                                    $('#modal-content').html(response);
+                                },
+                                failure: function (response) {
+                                    alert(response.responseText);
+                                },
+                                error: function (response) {
+                                    alert(response.responseText);
+                                }
+                            });
+                            break;
+                    case 2: $('#modal-content').load('@Url.Action("UserDetails","User")'); break;
+                    case 3: $('#modal-content').load('@Url.Action("UserDetails","User")'); break;
+                }
+        });
+
+        $('#example2').DataTable({
+            ajax: {
+                url: "@Url.Action("CollaboratorListLoadData","MemberInformation")",
+                type: "POST",
+                data: { "inputId": @member.MemberId  }
+            },
+            columns: [
+                { data: "Username" },
+                { data: "FullName" },
+                { data: "MemberBalance" },
+                { data: null, render: function ( data, type, row ) {
+                    if (data.IsLocked == "0") return "Mở"
+                    else return "Khóa";
+                    }
+                },
+                {
+                    data: null,
+                    render: function (data, type, row) {
+                        let link = '@Url.Action("download file", "download", new { inputId = "-1" })';
+                        link = link.replace("-1", data.MemberId);
+                        return '<a href="' + link+'"><i class="fas fa-edit"></i></a>';
+                    }
+                },
+                {
+                    data: null,
+                    render: function (data, type, row) {
+                        let inputid = data.MemberId;
+                        return '<a data-toggle="modal" data-target="#myModal" data-renderpartialview="1" data-inputid="'+inputid+'" class="generatePopup"><i class="fas fa-eraser"></i></a>';
+                    }
+                },
+                {
+                    data: null,
+                    render: function (data, type, row) {
+                        let inputid = data.MemberId;
+                        return '<a data-toggle="modal" data-target="#myModal" data-renderpartialview="2" data-inputid="'+inputid+'" class="generatePopup"><i class="fas fa-plus-square"></i></a>';
+                    }
+                },
+                {
+                    data: null,
+                    render: function (data, type, row) {
+                        let inputid = data.MemberId;
+                        return '<a data-toggle="modal" data-target="#myModal" data-renderpartialview="3" data-inputid="'+inputid+'" class="generatePopup"><i class="fas fa-minus-square"></i></a>';
+                    }
+                }
+            ]
+        } );
+    });
+
+</script>

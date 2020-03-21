@@ -1,0 +1,79 @@
+﻿@{
+    BALOTA.ViBaoHiem.Entity.MemberListEntity agency = ViewData["Agency"] as BALOTA.ViBaoHiem.Entity.MemberListEntity;
+}
+<div class="modal-header bg-primary">
+    <h4 class="modal-title" id="myModalLabel">Nạp tài khoản</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+@using (Ajax.BeginForm("MemberList_AddBalance", "MemberList"
+    , null
+    , new AjaxOptions
+        {
+            HttpMethod = "post"
+            , OnSuccess = "OnCallAddBalanceSuccess"
+            , OnFailure = "OnCallAddBalanceFailure"
+            , OnBegin = "OnCallAddBalanceBegin"
+        }
+    , new { role = "form", id = "AddBalanceForm" }))
+{
+<div class="modal-body">
+    <div class="row">
+        <div class="col-6">
+            <!-- text input -->
+            <div class="form-group row">
+                <input type="hidden" value="@agency.MemberId" name="memberId" />
+                @Html.Label("Username:", new { @class = "col-6" })
+                @Html.Label(agency.Username, new { @class = "col-6" })
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group row">
+                @Html.Label("Số dư tài khoản:", new { @class = "col-6" })
+                @Html.Label(agency.MemberBalance.ToString(), new { @class = "col-6" })
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <!-- text input -->
+            <div class="form-group row">
+                @Html.Label("Tổng số dư tài khoản cộng tác viên:", new { @class = "col-6" })
+                @Html.Label(agency.SumMemberBalance.ToString(), new { @class = "col-6" })
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                @Html.Label("Số dư tài khoản sau nạp:", new { @class = "col-6" })
+                <label id="MemberBalanceAfterAdd" class="col-6"></label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <!-- text input -->
+            <div class="form-group">
+                @Html.Label("Số tiền muốn nạp")
+                <input type="number" name="AddNumber" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <!-- text input -->
+            <div class="form-group">
+                @Html.Label("Mật khẩu xác nhận")
+                <input type="password" name="ConfirmPassword" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-danger d-none text-center" role="alert" id="CreateAgencyAlert">
+
+    </div>
+
+</div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        <button class="btn btn-primary" id="submit" type="submit">Nạp</button>
+    </div>
+}
+

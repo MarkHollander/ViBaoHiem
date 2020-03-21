@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "MemberManagementView";
+    Layout = "~/Views/User/MemberManagement/MemberManagement_LayoutPage.cshtml";
+
+}
+@model List<BALOTA.ViBaoHiem.Entity.MemberListEntity>
+
+<!-- DataTables -->
+<link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>DataTables</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">DataTables</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title row" style="width:100%">
+                        
+                            <h3 class="col-9 text-left">Danh sách đại lý mở</h3>
+                            <a data-toggle="modal" data-target="#MemberManagementModal" data-renderpartialview="5" data-inputid="0" class="generatePopup btn btn-block btn-primary col-3 text-white">
+                                Thêm đại lý
+                            </a>
+                        
+                    </div>                    
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example2" class="table table-bordered table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th colspan="6" class="text-center">Thông tin</th>
+                                <th colspan="2" class="text-center">Tài khoản</th>
+                                <th colspan="2" class="text-center">Tiền</th>
+                            </tr>
+                            <tr>                                
+                                <th>Tên đại lý</th>
+                                <th>Tên đầy đủ</th>                                
+                                <th>Người quản lý</th>
+                                <th>Số dư tài khoản</th>
+                                <th>Số lượng cộng tác viên</th>
+                                <th>Tổng số dư cộng tác viên</th>
+                                <th>Sửa</th>
+                                <th>Khóa</th>
+                                <th>Nạp</th>
+                                <th>Rút</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td><a href="@Url.Action("MemberInformation", "MemberInformation", new { inputId = item.MemberId})" class="text-decoration-none">@item.Username</a></td>
+                                <td>@item.FullName</td>
+                                <td>@item.DirectManagerUsername</td>
+                                <td class="text-center">@item.MemberBalance</td>
+                                <td class="text-center">@item.CollaboratorCount</td>
+                                <td class="text-center">@item.SumMemberBalance</td>
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#MemberManagementModal" data-renderpartialview="1" data-inputid="@item.MemberId" class="generatePopup">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#MemberManagementModal" data-renderpartialview="2" data-inputid="@item.MemberId" class="generatePopup">
+                                        <i class="fas fa-lock" style="color:#F5ACCD;"></i>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#MemberManagementModal" data-renderpartialview="3" data-inputid="@item.MemberId" class="generatePopup">
+                                        <i class="fas fa-plus-square"></i>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#MemberManagementModal" data-renderpartialview="4" data-inputid="@item.MemberId" class="generatePopup">
+                                        <i class="fas fa-minus-square"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>                                
+                                <th>Tên đại lý</th>
+                                <th>Tên đầy đủ</th>                                
+                                <th>Người quản lý</th>
+                                <th>Số dư tài khoản</th>
+                                <th>Số lượng cộng tác viên</th>
+                                <th>Tổng số dư cộng tác viên</th>
+                                <th>Sửa</th>
+                                <th>Khóa</th>
+                                <th>Nạp</th>
+                                <th>Rút</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="MemberManagementModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="modal-content">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+@*<script src="/dist/js/demo.js"></script>*@
+<!-- DataTables -->
+<script src="/plugins/datatables/jquery.dataTables.js"></script>
+<script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- page script -->
+<script src="~/Scripts/User/MemberManagement/MemberManagementView.js"></script>
+

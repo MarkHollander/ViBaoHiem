@@ -1,0 +1,102 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BALOTA.ViBaoHiem.Web", "BALOTA.ViBaoHiem.Web\BALOTA.ViBaoHiem.Web.csproj", "{4FA09DF8-AA76-4F01-BC8F-51A311910BB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6215B2C9-B990-4EF1-BB45-757DDD0BF507}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_DLL", "_DLL", "{BE792BFF-2EC7-475C-84C8-BAE75AF648FC}"
+	ProjectSection(SolutionItems) = preProject
+		_DLL\Autofac.dll = _DLL\Autofac.dll
+		_DLL\Autofac.XML = _DLL\Autofac.XML
+		_DLL\BarcodeLib.dll = _DLL\BarcodeLib.dll
+		_DLL\DocumentFormat.OpenXml.dll = _DLL\DocumentFormat.OpenXml.dll
+		_DLL\DocumentFormat.OpenXml.xml = _DLL\DocumentFormat.OpenXml.xml
+		_DLL\EPPlus.dll = _DLL\EPPlus.dll
+		_DLL\Excel.dll = _DLL\Excel.dll
+		_DLL\ExcelLibrary.dll = _DLL\ExcelLibrary.dll
+		_DLL\ExcelUtilities.dll = _DLL\ExcelUtilities.dll
+		_DLL\Facebook.dll = _DLL\Facebook.dll
+		_DLL\Facebook.xml = _DLL\Facebook.xml
+		_DLL\Gma.QrCodeNet.Encoding.dll = _DLL\Gma.QrCodeNet.Encoding.dll
+		_DLL\Gma.QrCodeNet.Encoding.XML = _DLL\Gma.QrCodeNet.Encoding.XML
+		_DLL\HtmlAgilityPack.dll = _DLL\HtmlAgilityPack.dll
+		_DLL\HtmlAgilityPack.xml = _DLL\HtmlAgilityPack.xml
+		_DLL\ICSharpCode.SharpZipLib.dll = _DLL\ICSharpCode.SharpZipLib.dll
+		_DLL\ICSharpCode.SharpZipLib.xml = _DLL\ICSharpCode.SharpZipLib.xml
+		_DLL\ImageResizer.dll = _DLL\ImageResizer.dll
+		_DLL\itextsharp.dll = _DLL\itextsharp.dll
+		_DLL\iTextSharp.xml = _DLL\iTextSharp.xml
+		_DLL\Newtonsoft.Json.dll = _DLL\Newtonsoft.Json.dll
+		_DLL\Newtonsoft.Json.xml = _DLL\Newtonsoft.Json.xml
+		_DLL\NLog.dll = _DLL\NLog.dll
+		_DLL\NLog.xml = _DLL\NLog.xml
+		_DLL\OfficeHelper.dll = _DLL\OfficeHelper.dll
+		_DLL\StackExchange.Redis.dll = _DLL\StackExchange.Redis.dll
+		_DLL\StackExchange.Redis.xml = _DLL\StackExchange.Redis.xml
+		_DLL\VB.Common.dll = _DLL\VB.Common.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BALOTA.ViBaoHiem.Entity", "Core\BALOTA.ViBaoHiem.Entity\BALOTA.ViBaoHiem.Entity.csproj", "{28817FE0-865E-4190-8ADF-E7EFA77FD4BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BALOTA.ViBaoHiem.MainDal", "Core\BALOTA.ViBaoHiem.MainDal\BALOTA.ViBaoHiem.MainDal.csproj", "{34CC5D1B-B85F-46FB-B7BB-2E7DBF881329}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BALOTA.ViBaoHiem.Dal", "Core\BALOTA.ViBaoHiem.Dal\BALOTA.ViBaoHiem.Dal.csproj", "{52D691FE-6B50-49E9-9B16-3D22FDF1F4C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BALOTA.ViBaoHiem.Bo", "Core\BALOTA.ViBaoHiem.Bo\BALOTA.ViBaoHiem.Bo.csproj", "{8B30B870-2FDD-43EA-B16D-CD0E1AA10A96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BALOTA.ViBaoHiem.GetwayConnector", "BALOTA.ViBaoHiem.GetwayConnector\BALOTA.ViBaoHiem.GetwayConnector.csproj", "{FE00C2BB-D06E-4E54-BC75-3462B16ACB4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BALOTA.ViBaoHiem.Web_MVC", "BALOTA.ViBaoHiem.Web_MVC\BALOTA.ViBaoHiem.Web_MVC.csproj", "{2F7D714A-F38F-4F5F-8422-A30226D395D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FA09DF8-AA76-4F01-BC8F-51A311910BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FA09DF8-AA76-4F01-BC8F-51A311910BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FA09DF8-AA76-4F01-BC8F-51A311910BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FA09DF8-AA76-4F01-BC8F-51A311910BB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28817FE0-865E-4190-8ADF-E7EFA77FD4BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28817FE0-865E-4190-8ADF-E7EFA77FD4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28817FE0-865E-4190-8ADF-E7EFA77FD4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28817FE0-865E-4190-8ADF-E7EFA77FD4BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34CC5D1B-B85F-46FB-B7BB-2E7DBF881329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34CC5D1B-B85F-46FB-B7BB-2E7DBF881329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34CC5D1B-B85F-46FB-B7BB-2E7DBF881329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34CC5D1B-B85F-46FB-B7BB-2E7DBF881329}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52D691FE-6B50-49E9-9B16-3D22FDF1F4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D691FE-6B50-49E9-9B16-3D22FDF1F4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D691FE-6B50-49E9-9B16-3D22FDF1F4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D691FE-6B50-49E9-9B16-3D22FDF1F4C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B30B870-2FDD-43EA-B16D-CD0E1AA10A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B30B870-2FDD-43EA-B16D-CD0E1AA10A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B30B870-2FDD-43EA-B16D-CD0E1AA10A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B30B870-2FDD-43EA-B16D-CD0E1AA10A96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE00C2BB-D06E-4E54-BC75-3462B16ACB4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE00C2BB-D06E-4E54-BC75-3462B16ACB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE00C2BB-D06E-4E54-BC75-3462B16ACB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE00C2BB-D06E-4E54-BC75-3462B16ACB4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F7D714A-F38F-4F5F-8422-A30226D395D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7D714A-F38F-4F5F-8422-A30226D395D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7D714A-F38F-4F5F-8422-A30226D395D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7D714A-F38F-4F5F-8422-A30226D395D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{28817FE0-865E-4190-8ADF-E7EFA77FD4BC} = {6215B2C9-B990-4EF1-BB45-757DDD0BF507}
+		{34CC5D1B-B85F-46FB-B7BB-2E7DBF881329} = {6215B2C9-B990-4EF1-BB45-757DDD0BF507}
+		{52D691FE-6B50-49E9-9B16-3D22FDF1F4C4} = {6215B2C9-B990-4EF1-BB45-757DDD0BF507}
+		{8B30B870-2FDD-43EA-B16D-CD0E1AA10A96} = {6215B2C9-B990-4EF1-BB45-757DDD0BF507}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E7BEFFAC-217C-4320-BB08-A96100F8E266}
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

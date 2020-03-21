@@ -1,0 +1,80 @@
+﻿@model BALOTA.ViBaoHiem.Entity.MemberEntity
+<div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel">Tạo đại lý</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+</div>
+@using (Ajax.BeginForm("MemberList_CreateNewAgency", "MemberList"
+    , null
+    , new AjaxOptions
+    {
+        HttpMethod = "post"
+            ,
+        OnSuccess = "OnCallCreateAgencySuccess"
+            ,
+        OnFailure = "OnCallCreateAgencyFailure"
+            ,
+        OnBegin = "OnCallCreateAgencyBegin"
+            ,
+        UpdateTargetId = "CreateAgencyAlert"
+    }
+    , new { role = "form", id = "CreateAgencyForm" }))
+{
+    @*@using (Html.BeginForm("MemberList_CreateNewAgency","MemberList",FormMethod.Post))
+        {*@
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-6">
+                <!-- text input -->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Username)
+                    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", id = "Username" })
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FullName, "Tên đầy đủ")
+                    @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", id = "FullName" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <!-- text input -->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", id = "Password" })
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" class="form-control" id="Pass2" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <!-- text input -->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "Email" })
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Mobile);
+                    @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", id = "Mobile" })
+                </div>
+            </div>
+
+        </div>
+        <div class="alert alert-danger" role="alert" id="CreateAgencyAlert" hidden="hidden">
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        <input class="btn btn-primary" id="submit" type="submit" value="Tạo" />
+    </div>
+}
+

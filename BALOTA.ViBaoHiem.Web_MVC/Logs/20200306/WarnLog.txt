@@ -1,0 +1,3 @@
+15:53:31	Connection string name not found [CmsMainDb]	GetConnectionString	CmsMainDb.CreateConnection => CurrentConfig.GetConnectionString => Logger.WriteLog
+16:04:52	Connection string name not found [CmsMainDb]	GetConnectionString	CmsMainDb.CreateConnection => CurrentConfig.GetConnectionString => Logger.WriteLog
+16:06:19	Connection string name not found [CmsMainDb]	GetConnectionString	CmsMainDb.CreateConnection => CurrentConfig.GetConnectionString => Logger.WriteLog

@@ -1,0 +1,38 @@
+﻿@model BALOTA.ViBaoHiem.Entity.MemberEntity
+@using (Ajax.BeginForm("", "", new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSuccess", OnFailure = "OnFailure" }, new { role = "form" }))
+{
+    <input type="hidden" class="form-control" placeholder="@Model.MemberId" name="MemberId">
+    <input type="hidden" class="form-control" placeholder="@Model.ParentMemberId" name="ParentMemberId">
+    <div class="row">
+        <div class="col-6">
+            <!-- text input -->
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" placeholder="@Model.Username" name="Username" disabled>
+                <input type="hidden" class="form-control" placeholder="@Model.Password" name="Password">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" placeholder="@Model.Email" name="Email">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <!-- text input -->
+            <div class="form-group">
+                <label>Fullname</label>
+                <input type="text" class="form-control" placeholder="@Model.FullName" name="FullName">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Mobile</label>
+                <input type="text" class="form-control" placeholder="@Model.Mobile" name="Mobile">
+            </div>
+        </div>
+    </div>
+}
+
